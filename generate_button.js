@@ -21,5 +21,8 @@ class GenerateButton extends React.Component {
   }
 }
 
+
+
+
 const domContainer = document.querySelector('#generate_button_container');
 ReactDOM.render(e(GenerateButton), domContainer);
