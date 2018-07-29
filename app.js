@@ -39,14 +39,18 @@ function returnStep(dance_moves, counts, counts_left, first, i, all_steps) {
 	if (!first) {
 		// If the same as last step, create a new step
 		var same_move = isSameMove(chosen_step, all_steps[i-1])
-		if (same_move) {
+		if (!same_move) {
+			return chosen_step;
+		}
+		else {
 			console.log("They are equal, so we'll find another step");
-			returnStep(dance_moves, counts, counts_left,
-				false, i, all_steps);
+			return returnStep(dance_moves, counts, counts_left, false, i, all_steps);
 		}
 	}
 
-	return chosen_step;
+	else {
+		return chosen_step;
+	}
 }
 
 function myFunction() {
@@ -58,31 +62,32 @@ function myFunction() {
 
 	for (i=0; total_counts < max_counts; i++) {
 		var dance_moves = [];
+		var tendu_moves = ["Tendus to the front", "Tendus to the side", "Tendus to the back", "Passe", "Plies"];
+		var frappe_moves = ["Frappes to the front", "Frappes to the side", 
+		"Frappes to the back", "Passe", "Petit battement", "Plies"];
 		var counts = [2, 4, 8, 16];
 		var counts_left = max_counts;
+		var step = {};
 
 		// Check for routine preferences
 		if (document.getElementById("tendus-option").checked) {
-			dance_moves = ["tendus to the front", "tendus to the side", "tendus to the back", "passe"];
+			dance_moves = tendu_moves;
 		}
 		else if (document.getElementById("frappes-option").checked) {
-			dance_moves = ["frappes to the front", "frappes to the side", "frappes to the back", "passe"];
+			dance_moves = frappe_moves;
 		}
+
 
 		// Update counts left to fit the rest of the 8-count 
 		if (total_counts > 0) {
 			counts_left = 8 - total_counts % 8; 
 			step = returnStep(dance_moves, counts, counts_left, false, i, all_steps);
 			all_steps.push(step);
-			console.log("These are all the steps: " + all_steps.length)
-			console.log("This is the current i: " + i)
-			console.log(all_steps[all_steps.length-1]);
 			total_counts += all_steps[i]["Count"]
-
 		}
 
 		else {
-			var step = returnStep(dance_moves, counts, counts_left, true, i, all_steps);
+			step = returnStep(dance_moves, counts, counts_left, true, i, all_steps);
 			all_steps.push(step);
 			total_counts += step["Count"];
 		}
@@ -99,7 +104,10 @@ function myFunction() {
 
 		document.getElementById("routine-list").appendChild(li);
 
-
 	}
+	var last_li = document.createElement("li");
+	var soutenu_text = document.createTextNode("Soutenu turn to other side");
+	last_li.appendChild(soutenu_text);
+	document.getElementById("routine-list").appendChild(last_li);
 	
 }
