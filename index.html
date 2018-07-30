@@ -2,18 +2,53 @@
 
 <html>
 <head>
-	<title>Ballet Warmup Generator</title>
+	<link rel="stylesheet" type="text/css" href="mystyle.css">
+	<title>Soutenu: Your Ballet Warmup Generator</title>
 </head>
 <body>
-	<h1>Generate ballet warmups to stretch your choreography memory!</h1>
-	<div id="warmupDisplay">
-	<h2>Choose a type of warmup</h2>
-	Frappes: <input type="radio" name= "dance=move" id="frappes-option">
-	<br>
-	Tendus: <input type="radio" name= "dance=move" id="tendus-option">
+	<div class="header">
+		<img src="soutenu_logo.png" alt="ballerina" height="400px">
+	</div>
+	<ul class="types-of-moves">
+		<h2>Choose a type of warmup</h2>
+		<li>
+			<input type="radio" name= "dance=move" id="frappes-option">
+			<label for="frappes-option">Frappé</label>
+		</li>
+		<li>
+			<input type="radio" name= "dance=move" id="tendus-option">
+			<label for="tendus-option">Tendu</label>
+		</li>
+		<li>
+			<input type="radio" name= "dance=move" id="adagio-option">
+			<label for="adagio-option">Adagio</label>
+		</li>
+	</ul>
 
+	<ul class="types-of-moves">
+		<h2>Choose the length of your warmup</h2>
+		<li>
+			<input type="radio" name= "counts-input" id="3-counts">
+			<label for="3-counts">Short<br>(3 eights) </label>
+		</li>
+		<li>
+			<input type="radio" name= "counts-input" id="6-counts">
+			<label for="6-counts">Medium<br>(6 eights) </label>
+		</li>
+		<li>
+			<input type="radio" name= "counts-input" id="12-counts">
+			<label for="12-counts">Long<br>(12 eights)</label>
+		</li>
+	</ul>
+
+	<div class="submit-button">
 	<button onclick=myFunction()>Submit</button>
+	</div>
 	<ul id="routine-list"></ul>
+
+	<div class="footer">
+		<p>Created by Eureka Foong 2018</p>
+	</div>
 
 <script src="app.js"></script>
 </body>

@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+}
+
+.header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    background-color: white;
+    font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+h1 {
+    color: navy;
+    margin-left: 20px;
+}
+
+.footer {
+	padding-top: 0.5px;
+	padding-bottom: 0.55px;
+	padding-left: 8px;
+	background-color: gray;
+	color: white;
+}
+
+.submit-button {
+	margin: auto;
+	width: 50%;
+	padding: 10px;
+	text-align:center;
+}
+
+.types-of-moves {
+	text-align: center;
+	display: table;
+	list-style-type:none;
+	margin: 0 auto;
+    /*margin:25px 0 0 0;*/
+	padding:0;
+}
+
+
+.types-of-moves li {
+	display:inline-block;
+     float:middle;
+     margin:0 5px 0 0; 
+    width:100px;
+    height:40px;
+    position:relative;
+}
+
+.types-of-moves label, .types-of-moves input {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+}
+.types-of-moves input[type="radio"] {
+    opacity:0.011;
+    z-index:100;
+}
+
+.types-of-moves input[type="radio"]:checked + label {
+    background:#EEC9C8;
+}
+
+.types-of-moves label {
+     padding:5px;
+     /*border:1px solid #CCC; */
+     cursor:pointer;
+    z-index:90;
+}
+
+.types-of-moves label:hover {
+     background:#DDD;
+}
+
+#routine-list {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
